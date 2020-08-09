@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Textclassifier", "Textclassifier\Textclassifier.csproj", "{C01C6966-A0BA-477F-AEE5-C3721EF28101}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Textclassification", "Textclassification\Textclassification.csproj", "{FF939032-35B5-4641-8ACA-27476FB5785E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C01C6966-A0BA-477F-AEE5-C3721EF28101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C01C6966-A0BA-477F-AEE5-C3721EF28101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C01C6966-A0BA-477F-AEE5-C3721EF28101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C01C6966-A0BA-477F-AEE5-C3721EF28101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF939032-35B5-4641-8ACA-27476FB5785E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF939032-35B5-4641-8ACA-27476FB5785E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF939032-35B5-4641-8ACA-27476FB5785E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF939032-35B5-4641-8ACA-27476FB5785E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E2057DA-5006-4951-B698-4F934B82889E}
+	EndGlobalSection
+EndGlobal
