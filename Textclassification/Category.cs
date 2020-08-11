@@ -35,14 +35,15 @@ namespace Textclassification
 		public void TeachPhrases(string words)
 		{
 			string[] wordList;
-			wordList = words.Split(new char[] { ' ' });
+			wordList = words.Split(' ');
+			//wordList = words.Split(new char[] { ' ' });
 			TeachPhrases(wordList);
 		}
 		public void TeachPhrases(string[] words)
 		{
 			string prev;
 			string next;
-			
+
 			prev = SOS;
 			foreach (string word in words)
 			{
@@ -61,11 +62,47 @@ namespace Textclassification
 			WordPair wp;
 			if (!_wordPair.TryGetValue(key, out wp))
 			{
-				wp = new WordPair() {LeftWord = leftWord, RightWord = rightWord };
-				_wordPair.Add(wp.ToString(), wp);
+				wp = new WordPair() { LeftWord = leftWord, RightWord = rightWord };
+				_wordPair.Add(key, wp);
 			}
-			wp.Count ++;
-			
+			wp.Count++;
+
+		}
+
+		public int TestWordPair(string leftWord, string rightWord)
+		{
+			string key = $"{leftWord.ToLower()}:{rightWord.ToLower()}";
+			WordPair wp;
+			if (_wordPair.TryGetValue(key, out wp))
+			{
+				return wp.Count;
+			}
+			return 0;
+
+		}
+		public int Test(string words)
+		{
+			string[] wordList;
+			wordList = words.Split(' ');
+			return Test(wordList);
+		}
+		public int Test(string[] words)
+		{
+			int acum;
+			string prev;
+			string next;
+
+			acum = 0;
+			prev = SOS;
+			foreach (string word in words)
+			{
+				next = word;
+				acum += TestWordPair(prev, next);
+				prev = next;
+			}
+			next = EOS;
+			acum += TestWordPair(prev, next);
+			return acum;
 		}
 		public override bool Equals(object obj)
 		{
