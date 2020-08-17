@@ -19,11 +19,11 @@ namespace Textclassification
 		{
 			LeftWord = leftWord;
 			RightWord = rightWord;
-			Count = 1;
+			Count = 0;
 		}
 		public WordPair()
 		{
-			Count = 1;
+			Count = 0;
 		}
 
 		public override bool Equals(object obj)
