@@ -58,7 +58,8 @@ namespace Textclassification
 
 		public void TeachWordPair(string leftWord, string rightWord)
 		{
-			string key = $"{leftWord.ToLower()}:{rightWord.ToLower()}";
+			//string key = $"{leftWord.ToLower()}:{rightWord.ToLower()}";
+			string key = WordPair.GenFuzyKey( leftWord, rightWord);
 			WordPair wp;
 			if (!_wordPair.TryGetValue(key, out wp))
 			{
@@ -71,7 +72,8 @@ namespace Textclassification
 
 		public int TestWordPair(string leftWord, string rightWord)
 		{
-			string key = $"{leftWord.ToLower()}:{rightWord.ToLower()}";
+			//string key = $"{leftWord.ToLower()}:{rightWord.ToLower()}";
+			string key = WordPair.GenFuzyKey(leftWord, rightWord);
 			WordPair wp;
 			if (_wordPair.TryGetValue(key, out wp))
 			{

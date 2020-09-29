@@ -9,7 +9,16 @@ namespace Textclassification
 {
 	public class WordPair
 	{
-		
+		public static string GenKey(string leftWord, string rightWord)
+		{
+			string key = $"{leftWord.ToLower()}:{rightWord.ToLower()}";
+			return key;
+		}
+		public static string GenFuzyKey(string leftWord, string rightWord)
+		{
+			string key = $"{SoundEx.Miracode.GenerateSoundEx(leftWord)}:{SoundEx.Miracode.GenerateSoundEx(rightWord)}";
+			return key;
+		}
 		public string LeftWord { get; set; }
 
 		public string RightWord { get; set; }
