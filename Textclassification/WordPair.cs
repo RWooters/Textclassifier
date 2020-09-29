@@ -16,7 +16,20 @@ namespace Textclassification
 		}
 		public static string GenFuzyKey(string leftWord, string rightWord)
 		{
-			string key = $"{SoundEx.Miracode.GenerateSoundEx(leftWord)}:{SoundEx.Miracode.GenerateSoundEx(rightWord)}";
+			string key;
+			if (leftWord.StartsWith("$"))
+			{
+				key = $"{leftWord}:{SoundEx.Miracode.GenerateSoundEx(rightWord)}";
+			}
+			else if (rightWord.StartsWith("$"))
+			{
+				key = $"{SoundEx.Miracode.GenerateSoundEx(leftWord)}:{rightWord}";
+			}
+			else
+			{
+				key = $"{SoundEx.Miracode.GenerateSoundEx(leftWord)}:{SoundEx.Miracode.GenerateSoundEx(rightWord)}";
+			}
+			//string key = $"{SoundEx.Miracode.GenerateSoundEx(leftWord)}:{SoundEx.Miracode.GenerateSoundEx(rightWord)}";
 			return key;
 		}
 		public string LeftWord { get; set; }
@@ -38,7 +51,6 @@ namespace Textclassification
 		public override bool Equals(object obj)
 		{
 			return obj.ToString() == ToString();
-			//return base.Equals(obj);
 		}
 
 		public override int GetHashCode()
@@ -49,7 +61,6 @@ namespace Textclassification
 		public override string ToString()
 		{
 			return LeftWord.ToLower() + ":" + RightWord.ToLower();
-			//return base.ToString();
 		}
 	}
 }
