@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Textclassification;
+using static VO.Con;
 
 namespace Textclassifier
 {
@@ -11,7 +12,8 @@ namespace Textclassifier
 	{
 		static void Main(string[] args)
 		{
-			Test_Category();
+			//Test_Category();
+			Test_Classifier();
 		}
 
 		static void Test_Category()
@@ -22,10 +24,43 @@ namespace Textclassifier
 			cat.TeachPhrases("What is the time");
 			cat.TeachPhrases("time");
 
-			Console.WriteLine(cat.Test("the time"));
+			Console.WriteLine( cat.Test("the time"));
 			Console.WriteLine(cat.Test("the date"));
+			Console.WriteLine(cat.Test("Time"));
+			Console.WriteLine(cat.Test("What will the Time be in 10 minits"));
+			Console.WriteLine(cat.Test("What is the time"));
 			Console.ReadLine();
 			return;
 		}
+		static void Test_Classifier()
+        {
+			Classifier cFier;
+			cFier = new Classifier();
+
+			cFier.TeachPhrases("time", "what time is it");
+			cFier.TeachPhrases("time", "time");
+			cFier.TeachPhrases("time", "What will the Time be in 10 minits");
+			cFier.TeachPhrases("time", "What is the time");
+
+			cFier.TeachPhrases("date", "what date is it");
+			cFier.TeachPhrases("date", "date");
+			cFier.TeachPhrases("date", "What will the date be in 10 days");
+			cFier.TeachPhrases("date", "What is the date");
+
+			string f;
+			f = "what the time";
+			QOut(f, "=", cFier.FindFirstCategory(f));
+
+			f = "date";
+			QOut(f, "=", cFier.FindFirstCategory(f));
+
+			f = "what is the date ";
+			QOut(f, "=", cFier.FindFirstCategory(f));
+
+			QOut();
+			InKey();
+
+			return;
+        }
 	}
 }

@@ -16,7 +16,7 @@ namespace Textclassification
 			_Categories = new SortedDictionary<string, Category>();
 		}
 
-		Category GetOrCreateCategory(string cat)
+		Category GetCategory(string cat)
 		{
 			Category c;
 			if (!_Categories.TryGetValue(cat, out c))
@@ -29,11 +29,11 @@ namespace Textclassification
 
 		public void TeachPhrases(string cat, string[] phrases)
 		{
-			GetOrCreateCategory(cat).TeachPhrases(phrases);
+			GetCategory(cat).TeachPhrases(phrases);
 		}
 		public void TeachPhrases(string cat, string phrases)
 		{
-			GetOrCreateCategory(cat).TeachPhrases(phrases);
+			GetCategory(cat).TeachPhrases(phrases);
 		}
 
 		public string FindFirstCategory(string phrases)
