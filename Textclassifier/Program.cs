@@ -54,7 +54,7 @@ namespace Textclassifier
 			f = "date";
 			QOut(f, "=", cFier.FindFirstCategory(f));
 
-			f = "what is the date ";
+			f = "what was the date  ";
 			QOut(f, "=", cFier.FindFirstCategory(f));
 
 			QOut();
