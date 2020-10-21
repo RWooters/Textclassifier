@@ -91,20 +91,35 @@ namespace Textclassification
 		public int Test(string[] words)
 		{
 			int acum;
+			int match, test;
 			string prev;
 			string next;
 
 			acum = 0;
+			match = 0;
+			test = 0;
 			prev = SOS;
 			foreach (string word in words)
 			{
 				next = word;
-				acum += TestWordPair(prev, next);
+				test = TestWordPair(prev, next);
+				if(test > 0)
+                {
+					match += 1;
+					acum += test;
+                }
+				//acum += TestWordPair(prev, next);
 				prev = next;
 			}
 			next = EOS;
-			acum += TestWordPair(prev, next);
-			return acum;
+			test = TestWordPair(prev, next);
+			if (test > 0)
+			{
+				match += 1;
+				acum += test;
+			}
+			//acum += TestWordPair(prev, next);
+			return match * acum;
 		}
 		public override bool Equals(object obj)
 		{

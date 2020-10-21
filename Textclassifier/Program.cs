@@ -12,9 +12,9 @@ namespace Textclassifier
 	{
 		static void Main(string[] args)
 		{
-			//Test_Category();
-			Test_Classifier();
-		}
+            //Test_Category();
+            Test_Classifier();
+        }
 
 		static void Test_Category()
 		{
@@ -29,6 +29,7 @@ namespace Textclassifier
 			Console.WriteLine(cat.Test("Time"));
 			Console.WriteLine(cat.Test("What will the Time be in 10 minits"));
 			Console.WriteLine(cat.Test("What is the time"));
+			Console.WriteLine(cat.Test("What is the Date"));
 			Console.ReadLine();
 			return;
 		}
@@ -48,13 +49,13 @@ namespace Textclassifier
 			cFier.TeachPhrases("date", "What is the date");
 
 			string f;
-			f = "what the time";
+			f = "what is the time";
 			QOut(f, "=", cFier.FindFirstCategory(f));
 
 			f = "date";
 			QOut(f, "=", cFier.FindFirstCategory(f));
 
-			f = "what was the date  ";
+			f = "what is the date  be";
 			QOut(f, "=", cFier.FindFirstCategory(f));
 
 			QOut();

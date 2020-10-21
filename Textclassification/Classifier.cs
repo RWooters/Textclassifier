@@ -43,9 +43,9 @@ namespace Textclassification
 
 			wordList = phrases.Split(' ');
 
+			int best = 0;
 			foreach (KeyValuePair<string, Category> cat in _Categories)
 			{
-				int best = 0;
 				int test = 0;
 				test = cat.Value.Test(wordList);
 				if ( test > best)
