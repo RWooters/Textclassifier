@@ -49,13 +49,19 @@ namespace Textclassifier
 			cFier.TeachPhrases("date", "What is the date");
 
 			string f;
-			f = "what is the time";
+			f = "whats is the time";
 			QOut(f, "=", cFier.FindFirstCategory(f));
 
 			f = "date";
 			QOut(f, "=", cFier.FindFirstCategory(f));
 
-			f = "what is the date  be";
+			f = "tell me the date";
+			QOut(f, "=", cFier.FindFirstCategory(f));
+
+			f = "tell me tim";
+			QOut(f, "=", cFier.FindFirstCategory(f));
+
+			f = "what time is it";
 			QOut(f, "=", cFier.FindFirstCategory(f));
 
 			QOut();
