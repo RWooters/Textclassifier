@@ -50,19 +50,22 @@ namespace Textclassifier
 
 			string f;
 			f = "whats is the time";
-			QOut(f, "=", cFier.FindFirstCategory(f));
+			QOut(cFier.FindStatCategory(f), "=", f);
 
 			f = "date";
-			QOut(f, "=", cFier.FindFirstCategory(f));
+			QOut(cFier.FindStatCategory(f), "=", f);
 
 			f = "tell me the date";
-			QOut(f, "=", cFier.FindFirstCategory(f));
+			QOut(cFier.FindStatCategory(f), "=", f);
 
 			f = "tell me tim";
-			QOut(f, "=", cFier.FindFirstCategory(f));
+			QOut(cFier.FindStatCategory(f), "=", f);
 
-			f = "what time is it";
-			QOut(f, "=", cFier.FindFirstCategory(f));
+			f = "tell me the time";
+			QOut(cFier.FindStatCategory(f), "=", f);
+			
+			f = "what is the color of the sky";
+			QOut(cFier.FindStatCategory(f), "=", f);
 
 			QOut();
 			InKey();

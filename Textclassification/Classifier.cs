@@ -57,6 +57,43 @@ namespace Textclassification
 			return firstCat;
 		}
 
+		public string FindStatCategory(string phreaes)
+		{
+			string firstCat = "";
+			string[] wordList;
+			SortedDictionary<int, string> statList = new SortedDictionary<int, string>();
+
+			wordList = phreaes.Split(' ');
+			
+			int acum = 0;
+			int best = 0;
+			int test;
+
+			foreach (KeyValuePair<string, Category> cat in _Categories)
+			{
+				test = cat.Value.Test(wordList);
+				acum += test;
+				 
+				if ( !statList.TryGetValue(test, out string name)) 
+					statList.Add(test, cat.Value.Name);
+
+			}
+
+			foreach(KeyValuePair<int, string> stat in statList)
+			{
+				test = stat.Key * 100 / acum;
+				if (test > best)
+				{
+					best = test;
+					firstCat = stat.Value;
+				}
+
+			}
+			if (best < 80)
+				firstCat = "dont know";
+					
+			return firstCat;
+		}
 	}
 
 }

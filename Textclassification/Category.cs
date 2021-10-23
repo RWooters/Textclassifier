@@ -59,7 +59,7 @@ namespace Textclassification
 		public void TeachWordPair(string leftWord, string rightWord)
 		{
 			//string key = $"{leftWord.ToLower()}:{rightWord.ToLower()}";
-			string key = WordPair.GenFuzyKey( leftWord, rightWord);
+			string key = WordPair.GenFuzyKey(leftWord, rightWord);
 			WordPair wp;
 			if (!_wordPair.TryGetValue(key, out wp))
 			{
@@ -103,11 +103,11 @@ namespace Textclassification
 			{
 				next = word;
 				test = TestWordPair(prev, next);
-				if(test > 0)
-                {
+				if (test > 0)
+				{
 					match += 1;
 					acum += test;
-                }
+				}
 				//acum += TestWordPair(prev, next);
 				prev = next;
 			}
