@@ -81,7 +81,8 @@ namespace Textclassification
 
 			foreach(KeyValuePair<int, string> stat in statList)
 			{
-				test = stat.Key * 100 / acum;
+				//check for divide by zero
+				test = stat.Key > 0 ? stat.Key * 100 / acum : 0;
 				if (test > best)
 				{
 					best = test;

@@ -30,6 +30,7 @@ namespace Textclassifier
 			Console.WriteLine(cat.Test("What will the Time be in 10 minits"));
 			Console.WriteLine(cat.Test("What is the time"));
 			Console.WriteLine(cat.Test("What is the Date"));
+			Console.WriteLine(cat.Test("What is "));
 			Console.ReadLine();
 			return;
 		}
@@ -42,11 +43,13 @@ namespace Textclassifier
 			cFier.TeachPhrases("time", "time");
 			cFier.TeachPhrases("time", "What will the Time be in 10 minits");
 			cFier.TeachPhrases("time", "What is the time");
+			cFier.TeachPhrases("time", "What is the time of day");
 
 			cFier.TeachPhrases("date", "what date is it");
 			cFier.TeachPhrases("date", "date");
 			cFier.TeachPhrases("date", "What will the date be in 10 days");
 			cFier.TeachPhrases("date", "What is the date");
+			cFier.TeachPhrases("date", "What day is it");
 
 			string f;
 			f = "whats is the time";
@@ -63,8 +66,11 @@ namespace Textclassifier
 
 			f = "tell me the time";
 			QOut(cFier.FindStatCategory(f), "=", f);
-			
+
 			f = "what is the color of the sky";
+			QOut(cFier.FindStatCategory(f), "=", f);
+
+			f = "Tell me the story ";
 			QOut(cFier.FindStatCategory(f), "=", f);
 
 			QOut();
