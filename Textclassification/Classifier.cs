@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Textclassification
 {
@@ -48,7 +44,7 @@ namespace Textclassification
 			{
 				int test = 0;
 				test = cat.Value.Test(wordList);
-				if ( test > best)
+				if (test > best)
 				{
 					best = test;
 					firstCat = cat.Value.Name;
@@ -64,7 +60,7 @@ namespace Textclassification
 			SortedDictionary<int, string> statList = new SortedDictionary<int, string>();
 
 			wordList = phreaes.Split(' ');
-			
+
 			int acum = 0;
 			int best = 0;
 			int test;
@@ -73,13 +69,13 @@ namespace Textclassification
 			{
 				test = cat.Value.Test(wordList);
 				acum += test;
-				 
-				if ( !statList.TryGetValue(test, out string name)) 
+
+				if (!statList.TryGetValue(test, out string name))
 					statList.Add(test, cat.Value.Name);
 
 			}
 
-			foreach(KeyValuePair<int, string> stat in statList)
+			foreach (KeyValuePair<int, string> stat in statList)
 			{
 				//check for divide by zero
 				test = stat.Key > 0 ? stat.Key * 100 / acum : 0;
@@ -92,7 +88,7 @@ namespace Textclassification
 			}
 			if (best < 80)
 				firstCat = "dont know";
-					
+
 			return firstCat;
 		}
 	}
