@@ -73,6 +73,12 @@ namespace Textclassifier
 			f = "Tell me the story ";
 			QOut(cFier.FindStatCategory(f), "=", f);
 
+			f = "What is the current time";
+			QOut(cFier.FindStatCategory(f), "=", f);
+
+			f = "What date is it";
+			QOut(cFier.FindStatCategory(f), "=", f);
+
 			QOut();
 			InKey();
 

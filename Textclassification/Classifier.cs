@@ -86,10 +86,10 @@ namespace Textclassification
 				}
 
 			}
-			if (best < 80)
+			if (best < 60)
 				firstCat = "dont know";
 
-			return firstCat;
+			return $"{firstCat} {best}";
 		}
 	}
 
